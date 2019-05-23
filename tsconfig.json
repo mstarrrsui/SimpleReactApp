@@ -14,7 +14,7 @@
     "strictPropertyInitialization": true,
     "strictNullChecks": true,
     "outDir": "transpiledjs",
-    "baseUrl": "./",
+    "baseUrl": ".",
     "typeRoots": ["node_modules/@types", "app/custom_typings"],
     "lib": ["dom", "es6"]
   },
