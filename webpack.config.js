@@ -52,6 +52,11 @@ module.exports = env => {
         }
       ]
     },
+    devServer: {
+      contentBase: path.join(__dirname, "app"),
+      compress: true,
+      port: 8080
+    },
     plugins: [
       new webpack.ProgressPlugin(),
       new HtmlWebpackPlugin({
