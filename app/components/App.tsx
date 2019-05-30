@@ -1,4 +1,5 @@
 import * as React from "react";
+import Boxes from "./Boxes";
 
 export default class App extends React.Component {
   public render(): React.ReactNode {
@@ -8,6 +9,7 @@ export default class App extends React.Component {
         <div className="mainimgcontainer">
           <div className="mainimg" />
         </div>
+        <Boxes />
       </div>
     );
   }
