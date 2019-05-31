@@ -37,7 +37,15 @@ module.exports = ({ mode } = { mode: "development" }) => {
           test: /\.css$/,
           use: [
             isDevelop ? "style-loader" : MiniCssExtractPlugin.loader,
-            "css-loader"
+            {
+              loader: "css-loader",
+              options: {
+                modules: true,
+                localIdentName: "[name]__[local]___[hash:base64:5]",
+                camelCase: true,
+                sourceMap: isDevelop
+              }
+            }
           ]
         }
       ]
