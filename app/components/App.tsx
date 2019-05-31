@@ -1,7 +1,7 @@
 import * as React from "react";
 import Boxes from "./Boxes";
 
-import * as styles from "../index.css";
+import styles from "./App.css";
 
 export default class App extends React.Component {
   public render(): React.ReactNode {

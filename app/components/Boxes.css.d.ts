@@ -1,5 +1,3 @@
-export const mainimgcontainer: string;
-export const mainimg: string;
 export const box: string;
 export const box1: string;
 export const box2: string;

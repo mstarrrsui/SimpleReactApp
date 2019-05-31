@@ -1,0 +1,49 @@
+@import url("https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900");
+@import url("https://fonts.googleapis.com/css?family=Spicy+Rice");
+
+.box {
+  font-size: 90px;
+  color: white;
+  padding: 10px;
+  text-align: center;
+  font-weight: 400;
+  font-family: "Roboto";
+  box-sizing: border-box;
+  flex-basis: 200px;
+}
+
+.box1 {
+  background: #e51400;
+}
+.box2 {
+  background: #fa6800;
+}
+.box3 {
+  background: #f0a30a;
+}
+.box4 {
+  background: #e3c800;
+}
+.box5 {
+  background: #a4c400;
+}
+.box6 {
+  background: #72d312;
+}
+.box7 {
+  background: #00aba9;
+}
+.box8 {
+  background: #1ba1e2;
+}
+.box9 {
+  background: #aa00ff;
+}
+
+.itemcontainer {
+  border: 10px solid black;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+}
