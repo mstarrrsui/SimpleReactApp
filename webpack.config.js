@@ -9,6 +9,7 @@ module.exports = ({ mode } = { mode: "development" }) => {
   const isDevelop = mode === "development";
 
   return {
+    mode: mode,
     entry: {
       main: "./app/index.tsx"
     },
@@ -42,6 +43,7 @@ module.exports = ({ mode } = { mode: "development" }) => {
       ]
     },
     plugins: [
+      new webpack.HotModuleReplacementPlugin(),
       new webpack.ProgressPlugin(),
       new MiniCssExtractPlugin({
         filename: "[name].[hash].css",
@@ -51,6 +53,10 @@ module.exports = ({ mode } = { mode: "development" }) => {
         title: "Simple React App",
         template: "app/index.html"
       })
-    ]
+    ],
+    devServer: {
+      historyApiFallback: true,
+      hot: true
+    }
   };
 };
