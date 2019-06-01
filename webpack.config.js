@@ -9,6 +9,7 @@ module.exports = ({ mode } = { mode: "development" }) => {
   const isDevelop = mode === "development";
 
   return {
+    devtool: isDevelop ? "eval-source-map" : "none",
     mode: mode,
     entry: {
       main: "./app/index.tsx"
@@ -22,6 +23,7 @@ module.exports = ({ mode } = { mode: "development" }) => {
       extensions: [".ts", ".tsx", ".js", ".jsx"]
     },
     optimization: {
+      minimize: !isDevelop,
       splitChunks: {
         chunks: "all"
       }
