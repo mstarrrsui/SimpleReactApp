@@ -51,6 +51,8 @@ module.exports = {
   // configure the plugins
   //
   plugins: [
+    // this plugin injects the <script></script> and <link></link> tags
+    // into your html file after making the resource bundles
     new HtmlWebpackPlugin({
       title: "Simple React App",
       template: "app/index.html"
