@@ -4,10 +4,12 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "webpack-dev-server --mode development",
-    "build": "webpack --mode production",
+    "start": "webpack-dev-server --env.mode development",
+    "build": "webpack --env.mode production",
     "transpile": "tsc",
-    "check": "tsc --noEmit"
+    "tsc:noemit": "tsc --noEmit",
+    "clean": "rimraf dist/*",
+    "prebuild": "npm run clean"
   },
   "author": "",
   "license": "ISC",
@@ -20,6 +22,8 @@
     "@types/react-dom": "^16.8.4",
     "css-loader": "^2.1.1",
     "html-webpack-plugin": "^3.2.0",
+    "mini-css-extract-plugin": "^0.7.0",
+    "rimraf": "^2.6.3",
     "style-loader": "^0.23.1",
     "ts-loader": "^6.0.1",
     "typescript": "^3.4.5",
