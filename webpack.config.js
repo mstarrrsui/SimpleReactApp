@@ -11,27 +11,25 @@ module.exports = {
     filename: "[name].[hash].js",
     publicPath: ""
   },
+  //
+  // these are the default extensions for imports
+  //
   resolve: {
     extensions: [".ts", ".tsx", ".js", ".jsx"]
   },
+  //
+  // this controls minification and code splitting.  this is set up for default behavior
+  // https://webpack.js.org/plugins/split-chunks-plugin/
+  //
   optimization: {
     minimize: true,
     splitChunks: {
-      cacheGroups: {
-        commons: {
-          chunks: "initial",
-          minChunks: 2
-        },
-        vendor: {
-          test: /node_modules/,
-          chunks: "initial",
-          name: "vendor",
-          priority: 10,
-          enforce: true
-        }
-      }
+      chunks: "all"
     }
   },
+  //
+  // configure the loaders
+  //
   module: {
     rules: [
       {
@@ -41,8 +39,18 @@ module.exports = {
       }
     ]
   },
+  //
+  // configure the dev server
+  //
+  devServer: {
+    historyApiFallback: true,
+    contentBase: path.join(__dirname, "app"),
+    open: "Chrome"
+  },
+  //
+  // configure the plugins
+  //
   plugins: [
-    new webpack.ProgressPlugin(),
     new HtmlWebpackPlugin({
       title: "Simple React App",
       template: "app/index.html"
