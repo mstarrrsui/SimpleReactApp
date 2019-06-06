@@ -1,0 +1,79 @@
+@import url("https://fonts.googleapis.com/css?family=Patua+One");
+@import url("https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900");
+@import url("https://fonts.googleapis.com/css?family=Spicy+Rice");
+
+h1,
+h2,
+h3,
+h4 {
+  font-family: "Patua One";
+  font-weight: 400;
+}
+
+.mainimgcontainer {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.mainimg {
+  background-image: url("https://upload.wikimedia.org/wikipedia/en/thumb/5/53/Arsenal_FC.svg/1200px-Arsenal_FC.svg.png"); /* The image used */
+  height: 200px; /* You must set a specified height */
+  width: 200px;
+  background-position: center; /* Center the image */
+  background-repeat: no-repeat; /* Do not repeat the image */
+  background-size: 200px 200px; /* Resize the background image to cover the entire container */
+}
+
+.mainimg:hover {
+  transform: rotate(720deg);
+  transition: transform 2s;
+}
+
+.box {
+  font-size: 90px;
+  color: white;
+  padding: 10px;
+  text-align: center;
+  font-weight: 400;
+  font-family: "Roboto";
+  box-sizing: border-box;
+  flex-basis: 200px;
+}
+
+.box-1 {
+  background: #e51400;
+}
+.box-2 {
+  background: #fa6800;
+}
+.box-3 {
+  background: #f0a30a;
+}
+.box-4 {
+  background: #e3c800;
+}
+.box-5 {
+  background: #a4c400;
+}
+.box-6 {
+  background: #72d312;
+}
+.box-7 {
+  background: #00aba9;
+}
+.box-8 {
+  background: #1ba1e2;
+}
+.box-9 {
+  background: #aa00ff;
+}
+
+.itemcontainer {
+  border: 10px solid black;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+}
