@@ -49,6 +49,17 @@ module.exports = ({ mode } = { mode: "development" }) => {
             isDevelop ? "style-loader" : MiniCssExtractPlugin.loader,
             "css-loader"
           ]
+        },
+        {
+          test: /\.woff(2)?(\?v=[0-9]\.[0-9]\.[0-9])?$/,
+          loader: "url-loader?limit=10000&mimetype=application/font-woff"
+        },
+        {
+          test: /\.(ttf|eot|otf|svg|jpe?g|png|gif)(\?v=[0-9]\.[0-9]\.[0-9])?$/,
+          loader: "url-loader",
+          options: {
+            limit: 10000
+          }
         }
       ]
     },
