@@ -58,7 +58,8 @@ module.exports = ({ mode } = { mode: "development" }) => {
     devServer: {
       historyApiFallback: true,
       contentBase: path.join(__dirname, "app"),
-      open: "Chrome"
+      open: "Chrome",
+      hot: true
     },
     //
     // configure the plugins
