@@ -10,6 +10,7 @@ module.exports = ({ mode } = { mode: "development" }) => {
 
   return {
     mode: mode,
+    devtool: isDevelop ? "inline-source-map" : "",
     entry: {
       main: "./app/index.tsx"
     },
@@ -28,7 +29,7 @@ module.exports = ({ mode } = { mode: "development" }) => {
     // https://webpack.js.org/plugins/split-chunks-plugin/
     //
     optimization: {
-      minimize: true,
+      minimize: !isDevelop,
       splitChunks: {
         chunks: "all"
       }
@@ -68,9 +69,21 @@ module.exports = ({ mode } = { mode: "development" }) => {
     //
     devServer: {
       historyApiFallback: true,
-      contentBase: path.join(__dirname, "app"),
+      //contentBase: path.join(__dirname, "app"),
       open: "Chrome",
-      hot: true
+      hot: true,
+      quiet: false,
+      noInfo: false,
+      stats: {
+        // Config for minimal console.log mess.
+        assets: true,
+        colors: true,
+        version: true,
+        hash: true,
+        timings: true,
+        chunks: false,
+        chunkModules: false
+      }
     },
     //
     // configure the plugins

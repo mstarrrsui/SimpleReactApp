@@ -9,6 +9,20 @@
             "problemMatcher": [
                 "$eslint-stylish"
             ]
+        },
+        {
+            "type": "npm",
+            "script": "tsc:noemit",
+            "problemMatcher": [
+                "$tsc"
+            ]
+        },
+        {
+            "type": "npm",
+            "script": "transpile",
+            "problemMatcher": [
+                "$tsc"
+            ]
         }
     ]
 }

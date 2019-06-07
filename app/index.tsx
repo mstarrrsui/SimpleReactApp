@@ -6,6 +6,6 @@ import "./index.css";
 
 ReactDOM.render(<App />, document.getElementById("app"));
 
-if ((module as any).hot) {
-  (module as any).hot.accept();
+if (module.hot) {
+  module.hot.accept();
 }
