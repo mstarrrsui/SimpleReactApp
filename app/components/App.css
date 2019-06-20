@@ -1,5 +1,4 @@
 @import url("https://fonts.googleapis.com/css?family=Patua+One");
-@import url("https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900");
 @import url("https://fonts.googleapis.com/css?family=Spicy+Rice");
 
 h1,
@@ -29,50 +28,4 @@ h4 {
 .mainimg:hover {
   transform: rotate(720deg);
   transition: transform 2s;
-}
-
-.box {
-  font-size: 90px;
-  color: white;
-  padding: 10px;
-  text-align: center;
-  font-weight: 400;
-  font-family: "Roboto";
-  box-sizing: border-box;
-  flex-basis: 200px;
-}
-
-.box-1 {
-  background: #e51400;
-}
-.box-2 {
-  background: #fa6800;
-}
-.box-3 {
-  background: #f0a30a;
-}
-.box-4 {
-  background: #e3c800;
-}
-.box-5 {
-  background: #a4c400;
-}
-.box-6 {
-  background: #60a917;
-}
-.box-7 {
-  background: #00aba9;
-}
-.box-8 {
-  background: #1ba1e2;
-}
-.box-9 {
-  background: #aa00ff;
-}
-
-.boxcontainer {
-  border: 10px solid black;
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
 }
