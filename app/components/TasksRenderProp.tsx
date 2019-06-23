@@ -21,7 +21,7 @@ export default class TasksRenderProp extends React.Component {
               <div>
                 {tasks.map(task => (
                   <div className="task" key={task.TaskID}>
-                    {task.CurrentStackDescription}-{task.CurrentStepDescription}{" "}
+                    {task.CurrentStackDescription}-{task.CurrentStepDescription}
                     -{task.InsuredName}
                   </div>
                 ))}
