@@ -2,8 +2,15 @@ import * as React from "react";
 
 const DATA_URL = "http://localhost:3130/tasks/5480";
 
+interface Task {
+  TaskID: number;
+  CurrentStackDescription: string;
+  CurrentStepDescription: string;
+  InsuredName: string;
+}
+
 interface State {
-  tasks: any[];
+  tasks: Task[];
 }
 
 const initialState: State = {
@@ -31,7 +38,6 @@ export default class App extends React.Component<object, State> {
             {task.InsuredName}
           </div>
         ))}
-        <div>Stack-Step - Status - Insured Name</div>
       </div>
     );
   }
