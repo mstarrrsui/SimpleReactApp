@@ -1,12 +1,15 @@
 import * as React from "react";
 
-const DATA_URL = "http://localhost:3130/tasks/5480";
-
 interface Task {
   TaskID: number;
   CurrentStackDescription: string;
   CurrentStepDescription: string;
   InsuredName: string;
+}
+
+interface Props {
+  url: string;
+  children?: (props: ChildrenProps) => React.ReactNode;
 }
 
 interface State {
@@ -15,17 +18,20 @@ interface State {
   tasks: Task[];
 }
 
+interface ChildrenProps extends State {}
+
 const initialState: State = {
   isLoading: false,
   error: null,
   tasks: []
 };
-export default class Tasks extends React.Component<object, State> {
+
+export default class TaskFetcher extends React.Component<Props, State> {
   public state: State = initialState;
 
   public componentDidMount(): void {
     this.setState({ isLoading: true, error: null });
-    fetch(DATA_URL)
+    fetch(this.props.url)
       .then(res => {
         if (res.ok) {
           return res.json();
@@ -45,23 +51,8 @@ export default class Tasks extends React.Component<object, State> {
   public render(): React.ReactNode {
     const { tasks, isLoading, error } = this.state;
 
-    if (error) {
-      return <p>{error.message}</p>;
-    }
-
-    if (isLoading) {
-      return <p>Please wait... loading......</p>;
-    }
-
     return (
-      <div>
-        {tasks.map(task => (
-          <div className="task" key={task.TaskID}>
-            {task.CurrentStackDescription}-{task.CurrentStepDescription} -
-            {task.InsuredName}
-          </div>
-        ))}
-      </div>
+      this.props.children && this.props.children({ tasks, isLoading, error })
     );
   }
 }
