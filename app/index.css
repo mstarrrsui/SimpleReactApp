@@ -10,6 +10,11 @@ h4 {
   font-weight: 400;
 }
 
+.task {
+  font-family: "Patua One";
+  font-weight: 400;
+}
+
 .mainimgcontainer {
   position: absolute;
   top: 50%;
