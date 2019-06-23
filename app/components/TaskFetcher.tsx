@@ -1,11 +1,5 @@
 import * as React from "react";
-
-interface Task {
-  TaskID: number;
-  CurrentStackDescription: string;
-  CurrentStepDescription: string;
-  InsuredName: string;
-}
+import Task from "../models/Task";
 
 interface Props {
   url: string;

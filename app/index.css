@@ -15,6 +15,14 @@ h4 {
   font-weight: 400;
 }
 
+.stackstep {
+  color: blue;
+}
+
+.producerLocation {
+  color: rgb(45, 160, 55);
+}
+
 .mainimgcontainer {
   position: absolute;
   top: 50%;

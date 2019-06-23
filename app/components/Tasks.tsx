@@ -1,13 +1,8 @@
 import * as React from "react";
+import Task from "../models/Task";
+import TaskRow from "./TaskRow";
 
 const DATA_URL = "http://localhost:3130/tasks/5480";
-
-interface Task {
-  TaskID: number;
-  CurrentStackDescription: string;
-  CurrentStepDescription: string;
-  InsuredName: string;
-}
 
 interface State {
   isLoading: boolean;
@@ -56,10 +51,7 @@ export default class Tasks extends React.Component<object, State> {
     return (
       <div>
         {tasks.map(task => (
-          <div className="task" key={task.TaskID}>
-            {task.CurrentStackDescription}-{task.CurrentStepDescription} -
-            {task.InsuredName}
-          </div>
+          <TaskRow task={task} />
         ))}
       </div>
     );

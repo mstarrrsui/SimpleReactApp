@@ -1,4 +1,5 @@
 import * as React from "react";
+import TaskRow from "./TaskRow";
 import TaskFetcher from "./TaskFetcher";
 
 const DATA_URL = "http://localhost:3130/tasks/5480";
@@ -8,7 +9,7 @@ export default class TasksRenderProp extends React.Component {
     return (
       <div>
         <TaskFetcher url={DATA_URL}>
-          {({ tasks, isLoading, error }) => {
+          {function({ tasks, isLoading, error }) {
             if (error) {
               return <p>{error.message}</p>;
             }
@@ -20,10 +21,7 @@ export default class TasksRenderProp extends React.Component {
             return (
               <div>
                 {tasks.map(task => (
-                  <div className="task" key={task.TaskID}>
-                    {task.CurrentStackDescription}-{task.CurrentStepDescription}
-                    -{task.InsuredName}
-                  </div>
+                  <TaskRow task={task} />
                 ))}
               </div>
             );

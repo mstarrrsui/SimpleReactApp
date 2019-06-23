@@ -1,13 +1,8 @@
 import * as React from "react";
+import Task from "../models/Task";
+import TaskRow from "./TaskRow";
 
 const DATA_URL = "http://localhost:3130/tasks/5480";
-
-interface Task {
-  TaskID: number;
-  CurrentStackDescription: string;
-  CurrentStepDescription: string;
-  InsuredName: string;
-}
 
 interface TaskFetcherResult {
   isLoading: boolean;
@@ -57,10 +52,7 @@ const TasksHooks: React.SFC = function() {
   return (
     <div>
       {tasks.map(task => (
-        <div className="task" key={task.TaskID}>
-          {task.CurrentStackDescription}-{task.CurrentStepDescription} -
-          {task.InsuredName}
-        </div>
+        <TaskRow task={task} />
       ))}
     </div>
   );
