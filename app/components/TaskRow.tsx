@@ -4,11 +4,13 @@ import Task from "../models/Task";
 
 interface Props {
   task: Task;
+  index: number;
 }
 
-const TaskRow: React.SFC<Props> = function({ task }) {
+const TaskRow: React.SFC<Props> = function({ task, index }) {
   return (
-    <div className="task" key={task.TaskID}>
+    <div className="taskrow">
+      {index} -
       <span className="stackstep">
         [{task.CurrentStackDescription}-{task.CurrentStepDescription}]
       </span>

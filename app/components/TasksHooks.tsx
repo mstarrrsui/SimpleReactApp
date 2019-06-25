@@ -51,9 +51,11 @@ const TasksHooks: React.SFC = function() {
 
   return (
     <div>
-      {tasks.map(task => (
-        <TaskRow task={task} />
-      ))}
+      {tasks
+        //.filter(t => t.ReadableCompleteDate !== null)
+        .map((task, idx) => (
+          <TaskRow key={task.TaskID} task={task} index={idx} />
+        ))}
     </div>
   );
 };

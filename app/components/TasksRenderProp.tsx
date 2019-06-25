@@ -20,8 +20,8 @@ export default class TasksRenderProp extends React.Component {
 
             return (
               <div>
-                {tasks.map(task => (
-                  <TaskRow task={task} />
+                {tasks.map((task, idx) => (
+                  <TaskRow key={task.TaskID} index={idx} task={task} />
                 ))}
               </div>
             );

@@ -71,7 +71,7 @@ module.exports = ({ mode } = { mode: "development" }) => {
       historyApiFallback: true,
       //contentBase: path.join(__dirname, "app"),
       open: "Chrome",
-      hot: true,
+      hot: false,
       quiet: false,
       noInfo: false,
       stats: {

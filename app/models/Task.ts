@@ -4,4 +4,5 @@ export default interface Task {
   CurrentStepDescription: string;
   InsuredName: string;
   ProducerLocation: string;
+  ReadableCompleteDate: string;
 }

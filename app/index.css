@@ -10,9 +10,10 @@ h4 {
   font-weight: 400;
 }
 
-.task {
+.taskrow {
   font-family: "Patua One";
   font-weight: 400;
+  margin-top: 3px;
 }
 
 .stackstep {
@@ -20,7 +21,7 @@ h4 {
 }
 
 .producerLocation {
-  color: rgb(45, 160, 55);
+  color: rgb(74, 134, 79);
 }
 
 .mainimgcontainer {

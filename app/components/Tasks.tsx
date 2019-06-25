@@ -50,8 +50,8 @@ export default class Tasks extends React.Component<object, State> {
 
     return (
       <div>
-        {tasks.map(task => (
-          <TaskRow task={task} />
+        {tasks.map((task, idx) => (
+          <TaskRow key={task.TaskID} index={idx} task={task} />
         ))}
       </div>
     );
