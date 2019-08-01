@@ -5,4 +5,5 @@ export default interface Task {
   InsuredName: string;
   ProducerLocation: string;
   ReadableCompleteDate: string;
+  CurrentStackID: number;
 }
