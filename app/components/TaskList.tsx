@@ -33,6 +33,7 @@ export default class TaskList extends React.Component<{}, State> {
             onChange={this.handleStackSelect}
             value={this.state.stack}
           >
+            <option value="All Stacks">All Stacks</option>
             <option value="New Bus./ Sub">New Bus./ Sub</option>
             <option value="Miscellaneous">Miscellaneous</option>
             <option value="Binder/Issue">Binder/Issue</option>
