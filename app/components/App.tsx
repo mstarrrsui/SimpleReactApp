@@ -1,12 +1,12 @@
 import * as React from "react";
 
-import TaskList from "./TaskList";
+import MyTasks from "./MyTasks";
 
 export default class App extends React.Component {
   public render(): React.ReactNode {
     return (
       <div>
-        <TaskList />
+        <MyTasks />
       </div>
     );
   }

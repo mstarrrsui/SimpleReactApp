@@ -1,47 +1,79 @@
 import * as React from "react";
-import Tasks from "./Tasks";
+import Task from "../models/Task";
+import TaskRow from "./TaskRow";
 
-interface State {
+const DATA_URL = "http://localhost:3130/tasks/5480";
+
+interface Props {
   stack: string;
 }
 
-const initialState: State = {
-  stack: "Renewals"
-};
+interface State {
+  isLoading: boolean;
+  error: Error | null;
+  tasks: Task[];
+}
 
-export default class TaskList extends React.Component<{}, State> {
+const initialState: State = {
+  isLoading: false,
+  error: null,
+  tasks: []
+};
+export default class TaskList extends React.Component<Props, State> {
   public state: State = initialState;
 
-  constructor(props: {}) {
-    super(props);
-    this.handleStackSelect = this.handleStackSelect.bind(this);
+  public loadTasks(stack: string): void {
+    this.setState({ isLoading: true, error: null });
+    fetch(DATA_URL)
+      .then(res => {
+        if (res.ok) {
+          return res.json();
+        } else {
+          console.log("error...");
+          throw Error("Error fetching the data!!!");
+        }
+      })
+      .then((tasks: Array<Task>) => {
+        if (stack !== "All Stacks") {
+          const filtered = tasks.filter(
+            t => t.CurrentStackDescription === stack
+          );
+          this.setState({ tasks: filtered, isLoading: false });
+        } else {
+          this.setState({ tasks, isLoading: false });
+        }
+      })
+      .catch(error => {
+        this.setState({ isLoading: false, error });
+      });
   }
 
-  public handleStackSelect(event: React.ChangeEvent<HTMLSelectElement>): void {
-    const { target } = event;
-    this.setState(() => ({ stack: target.value }));
+  public componentDidMount(): void {
+    this.loadTasks(this.props.stack);
+  }
+
+  public componentDidUpdate(prevProps: Props): void {
+    if (prevProps.stack !== this.props.stack) {
+      this.loadTasks(this.props.stack);
+    }
   }
 
   public render(): React.ReactNode {
+    const { tasks, isLoading, error } = this.state;
+
+    if (error) {
+      return <p>{error.message}</p>;
+    }
+
+    if (isLoading) {
+      return <p>Please wait... loading......</p>;
+    }
+
     return (
       <div>
-        <h2>Tasks</h2>
-        <div>
-          Stack:
-          <select
-            id="stack"
-            onChange={this.handleStackSelect}
-            value={this.state.stack}
-          >
-            <option value="All Stacks">All Stacks</option>
-            <option value="New Bus./ Sub">New Bus./ Sub</option>
-            <option value="Miscellaneous">Miscellaneous</option>
-            <option value="Binder/Issue">Binder/Issue</option>
-            <option value="Renewals">Renewals</option>
-            <option value="Endorsements">Endorsements</option>
-          </select>
-        </div>
-        <Tasks stack={this.state.stack} />
+        {tasks.map((task, idx) => (
+          <TaskRow key={task.TaskID} index={idx} task={task} />
+        ))}
       </div>
     );
   }
