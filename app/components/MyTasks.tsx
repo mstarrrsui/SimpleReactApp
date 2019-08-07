@@ -1,6 +1,7 @@
 import * as React from "react";
 import StackSelector from "./StackSelector";
-import TaskList from "./TaskList";
+//import TaskList from "./TaskList";
+import TaskListWithRenderProps from "./TaskListWithRenderProps";
 
 interface State {
   stack: string;
@@ -31,7 +32,7 @@ export default class MyTasks extends React.Component<{}, State> {
           stack={this.state.stack}
           onStackChange={this.handleStackSelect}
         />
-        <TaskList stack={this.state.stack} />
+        <TaskListWithRenderProps stack={this.state.stack} />
       </div>
     );
   }

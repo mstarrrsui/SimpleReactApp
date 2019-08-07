@@ -1,11 +1,13 @@
 import * as React from "react";
 import Task from "../models/Task";
-import TaskRow from "./TaskRow";
 
 const DATA_URL = "http://localhost:3130/tasks/5480";
 
 interface Props {
   stack: string;
+  children?: (
+    props: ChildrenProps
+  ) => React.ReactNode | React.ReactElement<ChildrenProps>;
 }
 
 interface State {
@@ -14,12 +16,14 @@ interface State {
   tasks: Task[];
 }
 
+interface ChildrenProps extends State {}
+
 const initialState: State = {
   isLoading: false,
   error: null,
   tasks: []
 };
-export default class TaskList extends React.Component<Props, State> {
+export default class TaskLoader extends React.Component<Props, State> {
   public state: State = initialState;
 
   private loadTasks(stack: string): void {
@@ -57,22 +61,12 @@ export default class TaskList extends React.Component<Props, State> {
   }
 
   public render(): React.ReactNode {
-    const { tasks, isLoading, error } = this.state;
+    const { isLoading, error, tasks } = this.state;
 
-    if (error) {
-      return <p>{error.message}</p>;
-    }
-
-    if (isLoading) {
-      return <p>Please wait... loading......</p>;
-    }
-
-    return (
-      <div>
-        {tasks.map((task, idx) => (
-          <TaskRow key={task.TaskID} index={idx} task={task} />
-        ))}
-      </div>
+    return this.props.children ? (
+      this.props.children({ isLoading, error, tasks })
+    ) : (
+      <div></div>
     );
   }
 }
