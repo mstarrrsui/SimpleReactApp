@@ -70,7 +70,9 @@ module.exports = ({ mode } = { mode: "development" }) => {
     devServer: {
       historyApiFallback: true,
       //contentBase: path.join(__dirname, "app"),
-      open: "Chrome",
+      //open: "Chrome",
+      host: '0.0.0.0',
+      port: 8080,
       hot: true,
       quiet: false,
       noInfo: false,
